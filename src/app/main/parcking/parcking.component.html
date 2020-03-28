@@ -1,1 +1,12 @@
-<p>parcking works!</p>
+<div class="parcking-container" fxLayout="column">
+  <div
+    class="vehicles-management"
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxFlex="50"
+  >
+    <app-add-vehicle fxFlex="40"></app-add-vehicle>
+    <app-queue-vehicles fxFlex="60"></app-queue-vehicles>
+  </div>
+  <app-parcking-lots fxFlex="50"></app-parcking-lots>
+</div>

@@ -1,0 +1,24 @@
+.container-add {
+  padding: 0px 20px 20px 20px;
+  height: 95%;
+}
+.btn-add {
+  background-color: #0071bb;
+  width: 40%;
+  height: 60%;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.obligatory {
+  font-weight: bold;
+  color: red;
+  margin-left: 5px;
+}
+
+
+::ng-deep .mat-form-field-wrapper {
+   padding-bottom: 0.9em;
+}
