@@ -17,16 +17,12 @@
     />
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <mat-icon>dialpad</mat-icon>
-      <span>Redial</span>
-    </button>
     <button mat-menu-item disabled>
-      <mat-icon>voicemail</mat-icon>
-      <span>Check voice mail</span>
+      <mat-icon>settings</mat-icon>
+      <span>Settings</span>
     </button>
     <button mat-menu-item (click)="authentication.logout()">
-      <mat-icon>notifications_off</mat-icon>
+      <mat-icon>exit_to_app</mat-icon>
       <span>Logout</span>
     </button>
   </mat-menu>
@@ -36,7 +32,26 @@
 <!-- Start sidenav container -->
 <mat-sidenav-container>
   <mat-sidenav mode="side" [(opened)]="opened">
-    Sidenav content
+    <div class="routes" fxLayout="column">
+      <div
+        class="route"
+        style="width: 97.5%;"
+        [class.item-selected]="selected === i"
+        *ngFor="let menu of menuItems; let i = index"
+      >
+        <button
+          mat-button
+          class="item"
+          [routerLink]="menu.path"
+          (click)="selected = i"
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
+          <mat-icon>{{ menu.icon }}</mat-icon>
+          <span class="label">{{ menu.name | titlecase }}</span>
+        </button>
+      </div>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>
