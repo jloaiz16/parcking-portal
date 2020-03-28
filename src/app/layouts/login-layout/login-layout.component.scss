@@ -1,0 +1,47 @@
+.login-container {
+  width: 100%;
+  height: 100%;
+  .form {
+    width: 380px;
+    padding: 70px 0px;
+    border-radius: 15px;
+    border: 2px solid #ccc;
+    .header {
+      .title-1 {
+        margin: 0px !important;
+      }
+      .title-2 {
+        color: #56a8de;
+        margin-bottom: 10px;
+      }
+      .sub-title {
+        font-weight: 500;
+        margin-bottom: 38px;
+      }
+    }
+    .content {
+      .btn-login {
+        width: 100%;
+        background-color: #000;
+        color: white;
+        font-weight: bold;
+        height: 55px;
+      }
+      .btn-disabled {
+        width: 100%;
+        background-color: #bfbfbf;
+        color: white;
+        font-weight: bold;
+        height: 55px;
+      }
+      .meesage {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+.warning {
+  color: red;
+  font-size: 16px;
+  font-weight: 500;
+}

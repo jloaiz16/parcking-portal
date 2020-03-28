@@ -1,20 +1,20 @@
 import { Routes, RouterModule } from '@angular/router';
-import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
-import { DashboardComponent } from './main/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AppLayoutComponent,
-    children: [
-      {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'dashboard'
-      },
-      { path: 'dashboard', component: DashboardComponent, pathMatch: 'full' }
-    ]
+    loadChildren: () =>
+      import('./layouts/app-layout/app-layout.module').then(
+        m => m.AppLayoutModule
+      )
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./layouts/login-layout/login-layout.module').then(
+        m => m.LoginLayoutModule
+      )
   },
   { path: '404', component: PageNotFoundComponent },
   { path: '**', redirectTo: '/404' }

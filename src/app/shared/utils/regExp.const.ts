@@ -1,0 +1,1 @@
+export const email = '[a-zA-Z0-9.-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,4}';

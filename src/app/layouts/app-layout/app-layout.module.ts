@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppLayoutComponent } from './app-layout.component';
 import { AngularMaterialModule } from '../../shared/angular-material/angular-material.module';
 import { DashboardComponent } from '../../main/dashboard/dashboard.component';
+import { AppRoutingModule } from './app-layout.routing.module';
 
 @NgModule({
   declarations: [AppLayoutComponent, DashboardComponent],
   imports: [
-    BrowserAnimationsModule,
     CommonModule,
     AngularMaterialModule,
+    AppRoutingModule,
     RouterModule
   ],
   providers: []

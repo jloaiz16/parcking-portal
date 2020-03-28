@@ -1,0 +1,57 @@
+<div class="login-container" fxLayoutAlign="center center">
+  <div class="form" fxLayout="column" fxLayoutAlign="center center">
+    <div class="header" fxLayout="column" fxLayoutAlign="center center">
+      <h1 class="title-1">WELCOME TO</h1>
+      <h1 class="title-2">PARCKING PORTAL</h1>
+      <h3 class="sub-title">Login to your account</h3>
+    </div>
+    <div class="content" fxLayout="column" fxLayoutAlign="center center">
+      <form name="loginForm" [formGroup]="loginForm">
+        <div class="username">
+          <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input
+              matInput
+              placeholder="Write your username"
+              formControlName="username"
+            />
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="loginForm.get('username').hasError('required')">
+              Username email is required
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('username').hasError('pattern')">
+              Username is invalid
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="password">
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              placeholder="Write your password"
+              formControlName="password"
+              type="password"
+            />
+            <mat-icon matSuffix>vpn_key</mat-icon>
+            <mat-error *ngIf="loginForm.get('password').hasError('required')">
+              Password is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="meesage" *ngIf="isInvalid">
+          <span class="warning"> Username or password incorrect!</span>
+        </div>
+        <button
+          class="btn-login"
+          [class.btn-disabled]="!loginForm.valid"
+          mat-flat-button
+          [disabled]="!loginForm.valid"
+          (click)="login()"
+        >
+          LOGIN
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
