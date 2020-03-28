@@ -1,0 +1,45 @@
+<!-- Start toolbar-->
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  Toolbar Title
+  <span class="example-fill-remaining-space"></span>
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    aria-label="Example icon-button with a menu"
+  >
+    <img
+      class="example-header-image"
+      src="https://material.angular.io/assets/img/examples/shiba1.jpg"
+      alt=""
+    />
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>dialpad</mat-icon>
+      <span>Redial</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>voicemail</mat-icon>
+      <span>Check voice mail</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Disable alerts</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<!-- End toolbar-->
+
+<!-- Start sidenav container -->
+<mat-sidenav-container>
+  <mat-sidenav mode="side" [(opened)]="opened">
+    Sidenav content
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<!-- End sidenav container -->
