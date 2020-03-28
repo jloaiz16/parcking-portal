@@ -3,7 +3,7 @@
   <button mat-icon-button (click)="sidenav.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
-  Toolbar Title
+  Parcking Portal
   <span class="example-fill-remaining-space"></span>
   <button
     mat-icon-button
@@ -25,9 +25,9 @@
       <mat-icon>voicemail</mat-icon>
       <span>Check voice mail</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="authentication.logout()">
       <mat-icon>notifications_off</mat-icon>
-      <span>Disable alerts</span>
+      <span>Logout</span>
     </button>
   </mat-menu>
 </mat-toolbar>

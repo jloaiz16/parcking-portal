@@ -8,7 +8,9 @@ import { Routing } from './app-routing.module';
 import { AppLayoutModule } from './layouts/app-layout/app-layout.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularFireModule } from '@angular/fire';
+import { AuthenticationService } from './core/authentication/authentication.service';
 import { environment } from '../environments/environment';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent],
@@ -21,7 +23,7 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [],
+  providers: [AuthenticationService, AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

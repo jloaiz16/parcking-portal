@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material';
+import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
 
 @Component({
   selector: 'app-layout',
@@ -11,7 +12,7 @@ export class AppLayoutComponent implements OnInit {
 
   @ViewChild(MatSidenav, { static: true }) sidenav: MatSidenav;
 
-  constructor() {}
+  constructor(private authentication: AuthenticationService) {}
 
   ngOnInit() {}
 }

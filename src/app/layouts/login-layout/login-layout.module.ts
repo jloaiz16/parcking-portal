@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { LoginLayoutComponent } from './login-layout.component';
 import { AngularMaterialModule } from '../../shared/angular-material/angular-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginRoutingModule } from './login-routing.module'
 
@@ -17,6 +16,6 @@ import { LoginRoutingModule } from './login-routing.module'
     LoginRoutingModule,
     CommonModule
   ],
-  providers: [AngularFireAuth]
+  providers: []
 })
 export class LoginLayoutModule { }

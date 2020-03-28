@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { IUserLogin } from 'src/app/shared/models/login.model';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { email } from 'src/app/shared/utils/regExp.const';
-import { auth } from 'firebase/app';
+import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-layout',
@@ -20,7 +20,8 @@ export class LoginLayoutComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private auth: AngularFireAuth
+    private authentication: AuthenticationService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -32,17 +33,15 @@ export class LoginLayoutComponent implements OnInit {
 
   login(): void {
     this.user = this.loginForm.getRawValue();
-    this.auth.auth
-      .signInWithEmailAndPassword(this.user.username, this.user.password)
-      .then(
-        user => {
-          this.isInvalid = false;
-          console.log(user);
-        },
-        error => {
-          this.isInvalid = true;
-          console.log(error);
-        }
-      );
+    this.authentication.login(this.user.username, this.user.password).then(
+      user => {
+        this.isInvalid = false;
+        this.router.navigate(['/']);
+      },
+      error => {
+        this.isInvalid = true;
+        console.log(error);
+      }
+    );
   }
 }
