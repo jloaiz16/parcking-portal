@@ -1,62 +1,73 @@
-<mat-card class="container-add" fxLayout="column">
-  <div class="header" fxFlex="20" fxLayoutAlign="start center">
-    <h2>Add new vehicle</h2>
-  </div>
-  <div class="content" fxFlex="60" fxLayout="row">
-    <div class="inputs" fxLayout="column" fxFlex="75">
-      <div class="vehicle-type" fxLayout="row">
-        <div class="label" fxFlex="30" fxLayoutAlign="start center">
-          <span class="input-label">Vehicle Type: </span
-          ><span class="obligatory">*</span>
+<mat-card class="container-add">
+  <form name="vehicleForm" [formGroup]="vehicleForm" fxLayout="column">
+    <div class="header" fxFlex="20" fxLayoutAlign="start center">
+      <h2>Add new vehicle</h2>
+    </div>
+    <div class="content" fxFlex="60" fxLayout="row">
+      <div class="inputs" fxLayout="column" fxFlex="75">
+        <div class="vehicle-type" fxLayout="row">
+          <div class="label" fxFlex="30" fxLayoutAlign="start center">
+            <span class="input-label">Vehicle Type: </span
+            ><span class="obligatory">*</span>
+          </div>
+          <div fxFlex="70" fxLayoutAlign="center center">
+            <div class="form-field">
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Select a vehicle type</mat-label>
+                <mat-select [(value)]="selected" formControlName="type">
+                  <mat-option
+                    *ngFor="let type of vehicleTypes"
+                    [value]="type.name"
+                    >{{ type.name | titlecase }}</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
         </div>
-        <div fxFlex="70" fxLayoutAlign="center center">
-          <div class="form-field">
-            <mat-form-field appearance="outline" class="form-field">
-              <mat-label>Select a vehicle type</mat-label>
-              <mat-select [(value)]="selected">
-                <mat-option>None</mat-option>
-                <mat-option value="option1">Option 1</mat-option>
-                <mat-option value="option2">Option 2</mat-option>
-                <mat-option value="option3">Option 3</mat-option>
-              </mat-select>
-            </mat-form-field>
+        <div class="number-plate" fxLayout="row">
+          <div class="label" fxFlex="30" fxLayoutAlign="start center">
+            <span class="input-label">Number Plate: </span
+            ><span class="obligatory">*</span>
+          </div>
+          <div fxFlex="70" fxLayoutAlign="center center">
+            <div class="form-field">
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Number plate</mat-label>
+                <input
+                  matInput
+                  placeholder="Write the number plate"
+                  formControlName="number_plate"
+                />
+                <mat-icon matSuffix>credit_card</mat-icon>
+                <mat-error
+                  *ngIf="vehicleForm.get('number_plate').hasError('required')"
+                >
+                  Number plate is required
+                </mat-error>
+              </mat-form-field>
+            </div>
           </div>
         </div>
       </div>
-      <div class="number-plate" fxLayout="row">
-        <div class="label" fxFlex="30" fxLayoutAlign="start center">
-          <span class="input-label">Number Plate: </span
-          ><span class="obligatory">*</span>
-        </div>
-        <div fxFlex="70" fxLayoutAlign="center center">
-          <div class="form-field">
-            <mat-form-field appearance="outline" class="form-field">
-              <mat-label>Number plate</mat-label>
-              <input
-                matInput
-                placeholder="Write the number plate"
-                formControlName="number_plate"
-              />
-              <mat-icon matSuffix>credit_card</mat-icon>
-              <mat-error
-                *ngIf="vehicleForm.get('number_plate').hasError('required')"
-              >
-                Number plate is required
-              </mat-error>
-            </mat-form-field>
-          </div>
-        </div>
+      <div class="type-image" fxLayoutAlign="center center" fxFlex="25">
+        <img
+          src="https://image.freepik.com/vector-gratis/recoger-vector_20448-123.jpg"
+          width="100px"
+          alt="Vehicle type image"
+        />
       </div>
     </div>
-    <div class="type-image" fxLayoutAlign="center center" fxFlex="25">
-      <img
-        src="https://image.freepik.com/vector-gratis/recoger-vector_20448-123.jpg"
-        width="100px"
-        alt="Vehicle type image"
-      />
+    <div class="actions" fxFlex="20" fxLayoutAlign="center center">
+      <button
+        class="btn-add"
+        mat-raised-button
+        color="primary"
+        [disabled]="!vehicleForm.valid"
+        (click)="register()"
+      >
+        Register
+      </button>
     </div>
-  </div>
-  <div class="actions" fxFlex="20" fxLayoutAlign="center center">
-    <button class="btn-add" mat-raised-button color="primary">Register</button>
-  </div>
+  </form>
 </mat-card>

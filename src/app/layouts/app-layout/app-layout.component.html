@@ -1,6 +1,10 @@
 <!-- Start toolbar-->
 <mat-toolbar color="primary">
-  <button mat-icon-button (click)="sidenav.toggle()">
+  <button
+    mat-icon-button
+    (click)="sidenav.toggle(); opened = true"
+    (mouseenter)="sidenav.toggle(); opened = true"
+  >
     <mat-icon>menu</mat-icon>
   </button>
   Parcking Portal
@@ -38,6 +42,7 @@
         style="width: 97.5%;"
         [class.item-selected]="selected === i"
         *ngFor="let menu of menuItems; let i = index"
+        (click)="opened = false"
       >
         <button
           mat-button

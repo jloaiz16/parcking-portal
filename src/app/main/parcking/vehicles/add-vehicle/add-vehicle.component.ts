@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { IVehicle } from 'src/app/shared/models/vehicle.model';
-
+import { IVehicle, IVehicleType } from 'src/app/shared/models/vehicle.model';
+import { AngularFirestore } from '@angular/fire/firestore';
+import Swal from 'sweetalert2';
+import { StorageService } from 'src/app/shared/services/storage.service';
 @Component({
   selector: 'app-add-vehicle',
   templateUrl: './add-vehicle.component.html',
@@ -9,6 +11,8 @@ import { IVehicle } from 'src/app/shared/models/vehicle.model';
 })
 export class AddVehicleComponent implements OnInit {
   public selected: string;
+  // public parckingTypes: IParckingType[] = [];
+  public vehicleTypes: IVehicleType[] = [];
   public vehicleForm: FormGroup;
   public vehicle: IVehicle = {
     id: null,
@@ -17,12 +21,33 @@ export class AddVehicleComponent implements OnInit {
     date: null
   };
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private service: StorageService
+  ) {
+    this.service.getVehicleTypes().subscribe(
+      (types: IVehicleType[]) => {
+        this.vehicleTypes = types;
+      },
+      error => {
+        console.error(error);
+      }
+    );
+  }
 
   ngOnInit() {
     this.vehicleForm = this.formBuilder.group({
       type: ['', Validators.required],
       number_plate: ['', Validators.required]
+    });
+  }
+
+  register(): void {
+    this.vehicle = this.vehicleForm.getRawValue();
+    this.vehicle.date = new Date().toString();
+    this.service.addVehicle(this.vehicle).then(response => {
+      Swal.fire('Success', 'Vehicle added to queue succesfully', 'success');
+      this.vehicleForm.reset();
     });
   }
 }

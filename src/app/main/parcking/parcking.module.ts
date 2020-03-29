@@ -8,6 +8,8 @@ import { AddVehicleComponent } from './vehicles/add-vehicle/add-vehicle.componen
 import { QueueVehiclesComponent } from './vehicles/queue-vehicles/queue-vehicles.component';
 import { ParckingLotsComponent } from './parcking-lots/parcking-lots.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { StorageService } from 'src/app/shared/services/storage.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FlexLayoutModule
   ],
-  providers: []
+  providers: [AngularFirestore, StorageService]
 })
 export class ParckingModule {}
