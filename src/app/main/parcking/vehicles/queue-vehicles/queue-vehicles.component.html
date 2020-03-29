@@ -1,1 +1,35 @@
-<p>queue-vehicles works!</p>
+<mat-card class="container-queue" fxLayout="column">
+    <div class="header" fxFlex="20" fxLayoutAlign="start center">
+        <h2>Queue vehicle</h2>
+    </div>
+    <div class="header-subtitles" fxFlex="20" fxLayout="row">
+        <div class="label" fxFlex="25">
+            <span>Vehicle Type</span>
+        </div>
+        <div class="label" fxFlex="25">
+            <span>Number Plate</span>
+        </div>
+        <div class="label" fxFlex="25">
+            <span>Register date</span>
+        </div>
+        <div class="label" fxFlex="25">
+            <span>Actions</span>
+        </div>
+    </div>
+    <div class="content">
+        <mat-card class="vehicle" *ngFor="let vehicle of vehicles; let i = index">
+            <div class="label" fxFlex="25">
+                <span>{{ vehicle.type }}</span>
+            </div>
+            <div class="label" fxFlex="25">
+                <span>{{ vehicle.number_plate }}</span>
+            </div>
+            <div class="label" fxFlex="25">
+                <span>{{ vehicle.date }}</span>
+            </div>
+            <div class="label" fxFlex="25">
+                <button class="btn-add" mat-raised-button color="primary">Delete</button>
+            </div>
+        </mat-card>
+    </div>
+</mat-card>

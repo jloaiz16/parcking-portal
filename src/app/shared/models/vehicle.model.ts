@@ -1,6 +1,6 @@
 export interface IVehicle {
   id: number;
-  type: number;
-  number_plate: number;
+  type: string;
+  number_plate: string;
   date: string;
 }
