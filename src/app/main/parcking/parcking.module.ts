@@ -10,13 +10,14 @@ import { ParckingLotsComponent } from './parcking-lots/parcking-lots.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { StorageService } from 'src/app/shared/services/storage.service';
-
+import { GetIconPipe } from 'src/app/shared/pipes/get-icon.pipe';
 @NgModule({
   declarations: [
     ParckingComponent,
     AddVehicleComponent,
     QueueVehiclesComponent,
-    ParckingLotsComponent
+    ParckingLotsComponent,
+    GetIconPipe
   ],
   imports: [
     CommonModule,

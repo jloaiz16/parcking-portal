@@ -3,6 +3,7 @@ export interface IVehicle {
   type: string;
   number_plate: string;
   date: string;
+  waiting: boolean;
 }
 
 export interface IVehicleType {

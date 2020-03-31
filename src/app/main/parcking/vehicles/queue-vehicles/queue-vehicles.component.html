@@ -1,31 +1,42 @@
 <mat-card class="container-queue" fxLayout="column">
-  <div class="header" fxFlex="20" fxLayoutAlign="start center">
+  <div class="header" fxFlex="15" fxLayoutAlign="start center">
     <h2>Queue vehicle</h2>
   </div>
-  <div class="header-subtitles" fxFlex="20" fxLayout="row">
+  <div class="header-subtitles" fxFlex="10" fxLayout="row">
     <div
-      class="label"
-      fxFlex="25"
+      fxFlex="{{ option.size }}"
       fxLayoutAlign="center center"
       *ngFor="let option of headerOptions"
     >
-      <span>{{ option | titlecase }}</span>
+      <span class="label-header">{{ option.name | titlecase }}</span>
     </div>
   </div>
   <div class="content">
     <mat-card class="vehicle" *ngFor="let vehicle of vehicles; let i = index">
-      <div class="label" fxFlex="25" fxLayoutAlign="center center">
+      <div class="label" fxFlex="10" fxLayoutAlign="center center">
+        <span>{{ i + 1 }}</span>
+      </div>
+      <div class="label" fxFlex="20" fxLayoutAlign="center center">
         <span>{{ vehicle.type | titlecase }}</span>
       </div>
-      <div class="label" fxFlex="25" fxLayoutAlign="center center">
+      <div class="label" fxFlex="20" fxLayoutAlign="center center">
         <span>{{ vehicle.number_plate }}</span>
       </div>
-      <div class="label" fxFlex="25" fxLayoutAlign="center center">
-        <span>{{ vehicle.date | date: 'yyyy-MM-dd' }}</span>
+      <div class="label" fxFlex="30" fxLayoutAlign="center center">
+        <span>{{ vehicle.date | date: 'medium' }}</span>
       </div>
-      <div class="label" fxFlex="25" fxLayoutAlign="center center">
+      <div class="label" fxFlex="20" fxLayoutAlign="center center">
         <button
+          *ngIf="i == 0"
           class="btn-add"
+          mat-raised-button
+          color="primary"
+          (click)="add(vehicle)"
+        >
+          Parcking
+        </button>
+        <button
+          class="btn-remove"
           mat-raised-button
           color="primary"
           (click)="delete(vehicle.id)"

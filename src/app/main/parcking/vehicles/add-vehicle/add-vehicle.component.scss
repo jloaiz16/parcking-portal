@@ -3,9 +3,15 @@
   height: 95%;
 }
 .btn-add {
-  background-color: #0071bb;
-  width: 40%;
-  height: 60%;
+  background-color: #b1e0ff;
+  color: #0071bb;
+  font-size: 15px;
+  border: none !important;
+  border-radius: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 30%;
+  height: 50%;
 }
 
 .form-field {
@@ -18,7 +24,6 @@
   margin-left: 5px;
 }
 
-
 ::ng-deep .mat-form-field-wrapper {
-   padding-bottom: 0.9em;
+  padding-bottom: 0.9em;
 }

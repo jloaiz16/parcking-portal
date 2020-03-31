@@ -1,4 +1,40 @@
 .container-queue {
   padding: 0px 20px 20px 20px;
-  height: 95%;
+  height: 100%;
+  .content {
+    overflow-y: auto;
+    max-height: calc(100vh - 500px);
+    .label-header {
+      font-size: 16px;
+      font-weight: 500;
+      color: #979797;
+    }
+    .label {
+      font-size: 15px;
+      font-weight: 500;
+      color: #414141;
+    }
+    .btn-remove {
+      background-color: #fbe3e3e6;
+      color: #920000;
+      font-size: 15px;
+      border: none !important;
+      border-radius: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-add {
+      background-color: #dcffdfe6;
+      color: #00660e;
+      font-size: 15px;
+      border: none !important;
+      border-radius: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .vehicle {
+      margin-bottom: 1%;
+      border: 1px solid #f3f3f3;
+    }
+  }
 }

@@ -1,1 +1,289 @@
-<p>parcking-lots works!</p>
+<div class="plots-container" fxLayout="row">
+  <mat-card class="status" fxFlex="39" fxLayout="column">
+    <div class="header" fxFlex="20" fxLayoutAlign="start center">
+      <h2>Parcking lots status</h2>
+    </div>
+    <div
+      class="lots-labels"
+      fxFlex="60"
+      fxLayout="row"
+      fxLayoutAlign="center center"
+    >
+      <div
+        class="small"
+        fxFlex="33"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+      >
+        <div class="number">
+          <span class="subtotal"> {{ smallSubTotal }}</span>
+          <span class="separator"> / </span>
+          <span class="total"> {{ smallTotal }}</span>
+        </div>
+        <div fxLayoutAlign="center center">
+          <span class="title">Small</span>
+        </div>
+      </div>
+      <div
+        class="medium"
+        fxFlex="33"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+      >
+        <div class="number">
+          <span class="subtotal"> {{ mediumSubTotal }}</span>
+          <span class="separator"> / </span>
+          <span class="total"> {{ mediumTotal }}</span>
+        </div>
+        <div fxLayoutAlign="center center">
+          <span class="title">Medium</span>
+        </div>
+      </div>
+      <div
+        class="large"
+        fxFlex="33"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+      >
+        <div class="number">
+          <span class="subtotal"> {{ largeSubTotal }}</span>
+          <span class="separator"> / </span>
+          <span class="total"> {{ largeTotal }}</span>
+        </div>
+        <div fxLayoutAlign="center center">
+          <span class="title">Large</span>
+        </div>
+      </div>
+    </div>
+    <div class="actions" fxFlex="20" fxLayoutAlign="center center">
+      <button
+        mat-stroked-button
+        matTooltip="Delete Random Vehicle From Parcking Lots"
+        class="btn-remove"
+        (click)="removeRandomFromLot()"
+      >
+        Delete Random
+      </button>
+    </div>
+  </mat-card>
+  <mat-card class="lots" fxFlex="60" fxLayout="column">
+    <div class="header" fxFlex="20" fxLayoutAlign="start center">
+      <h2>Parcking lots</h2>
+    </div>
+    <div class="lots" fxFlex="70" fxLayoutAlign="center center">
+      <table *ngIf="lots.length !== 0">
+        <tbody>
+          <tr>
+            <td>
+              <span *ngIf="lots[0].vehicle_id.length == 0">
+                {{ lots[0].id_number }}
+              </span>
+              <button
+                class="btn-lot"
+                (click)="getInformation(lots[0].id, lots[0].vehicle_id)"
+                *ngIf="lots[0].vehicle_id.length !== 0"
+              >
+                <mat-icon>local_parking</mat-icon>
+                <!-- <mat-icon>{{ lots[0].vehicle_id | getIconVehicle }}</mat-icon> -->
+              </button>
+            </td>
+            <td rowspan="3">
+              <span *ngIf="lots[1].vehicle_id.length == 0">
+                {{ lots[1].id_number }}
+              </span>
+              <button
+                class="btn-lot"
+                (click)="getInformation(lots[1].id, lots[1].vehicle_id)"
+                *ngIf="lots[1].vehicle_id.length !== 0"
+              >
+                <mat-icon>local_parking</mat-icon>
+                <!-- <mat-icon>{{ lots[1].vehicle_id | getIconVehicle }}</mat-icon> -->
+              </button>
+            </td>
+            <td rowspan="3">
+              <span *ngIf="lots[2].vehicle_id.length == 0">
+                {{ lots[2].id_number }}
+              </span>
+              <button
+                class="btn-lot"
+                (click)="getInformation(lots[2].id, lots[2].vehicle_id)"
+                *ngIf="lots[2].vehicle_id.length !== 0"
+              >
+                <mat-icon>local_parking</mat-icon>
+                <!-- <mat-icon>{{ lots[2].vehicle_id | getIconVehicle }}</mat-icon> -->
+              </button>
+            </td>
+            <td rowspan="3">
+              <span *ngIf="lots[3].vehicle_id.length == 0">
+                {{ lots[3].id_number }}
+              </span>
+              <button
+                class="btn-lot"
+                (click)="getInformation(lots[3].id, lots[3].vehicle_id)"
+                *ngIf="lots[3].vehicle_id.length !== 0"
+              >
+                <!-- <mat-icon>{{ lots[3].vehicle_id | getIconVehicle }}</mat-icon> -->
+                <mat-icon>local_parking</mat-icon>
+              </button>
+            </td>
+            <td rowspan="2">
+              <span *ngIf="lots[4].vehicle_id.length == 0">
+                {{ lots[4].id_number }}
+              </span>
+              <button
+                class="btn-lot"
+                (click)="getInformation(lots[4].id, lots[4].vehicle_id)"
+                *ngIf="lots[4].vehicle_id.length !== 0"
+              >
+                <mat-icon>local_parking</mat-icon>
+                <!-- <mat-icon>{{ lots[4].vehicle_id | getIconVehicle }}</mat-icon> -->
+              </button>
+            </td>
+            <td rowspan="2">
+              <span *ngIf="lots[5].vehicle_id.length == 0">
+                {{ lots[5].id_number }}
+              </span>
+              <button
+                class="btn-lot"
+                (click)="getInformation(lots[5].id, lots[5].vehicle_id)"
+                *ngIf="lots[5].vehicle_id.length !== 0"
+              >
+                <mat-icon>local_parking</mat-icon>
+                <!-- <mat-icon>{{ lots[5].vehicle_id | getIconVehicle }}</mat-icon> -->
+              </button>
+            </td>
+            <td>
+              <span *ngIf="lots[6].vehicle_id.length == 0">
+                {{ lots[6].id_number }}
+              </span>
+              <button
+                class="btn-lot"
+                (click)="getInformation(lots[6].id, lots[6].vehicle_id)"
+                *ngIf="lots[6].vehicle_id.length !== 0"
+              >
+                <mat-icon>local_parking</mat-icon>
+                <!-- <mat-icon>{{ lots[6].vehicle_id | getIconVehicle }}</mat-icon> -->
+              </button>
+            </td>
+            <td rowspan="2">
+              <span *ngIf="lots[7].vehicle_id.length == 0">
+                {{ lots[7].id_number }}
+              </span>
+              <button
+                class="btn-lot"
+                (click)="getInformation(lots[7].id, lots[7].vehicle_id)"
+                *ngIf="lots[7].vehicle_id.length !== 0"
+              >
+                <mat-icon>local_parking</mat-icon>
+                <!-- <mat-icon>{{ lots[7].vehicle_id | getIconVehicle }}</mat-icon> -->
+              </button>
+            </td>
+            <td rowspan="3">
+              <span *ngIf="lots[8].vehicle_id.length == 0">
+                {{ lots[8].id_number }}
+              </span>
+              <button
+                class="btn-lot"
+                (click)="getInformation(lots[8].id, lots[8].vehicle_id)"
+                *ngIf="lots[8].vehicle_id.length !== 0"
+              >
+                <mat-icon>local_parking</mat-icon>
+                <!-- <mat-icon>{{ lots[8].vehicle_id | getIconVehicle }}</mat-icon> -->
+              </button>
+            </td>
+            <td>
+              <span *ngIf="lots[9].vehicle_id.length == 0">
+                {{ lots[9].id_number }}
+              </span>
+              <button
+                class="btn-lot"
+                (click)="getInformation(lots[9].id, lots[9].vehicle_id)"
+                *ngIf="lots[9].vehicle_id.length !== 0"
+              >
+                <mat-icon>local_parking</mat-icon>
+                <!-- <mat-icon>{{ lots[9].vehicle_id | getIconVehicle }}</mat-icon> -->
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span *ngIf="lots[10].vehicle_id.length == 0">
+                {{ lots[10].id_number }}
+              </span>
+              <button
+                class="btn-lot"
+                (click)="getInformation(lots[10].id, lots[10].vehicle_id)"
+                *ngIf="lots[10].vehicle_id.length !== 0"
+              >
+                <mat-icon>local_parking</mat-icon>
+                <!-- <mat-icon>{{ lots[10].vehicle_id | getIconVehicle }}</mat-icon> -->
+              </button>
+            </td>
+            <td rowspan="2">
+              <span *ngIf="lots[11].vehicle_id.length == 0">
+                {{ lots[11].id_number }}
+              </span>
+              <button
+                class="btn-lot"
+                (click)="getInformation(lots[11].id, lots[11].vehicle_id)"
+                *ngIf="lots[11].vehicle_id.length !== 0"
+              >
+                <mat-icon>local_parking</mat-icon>
+                <!-- <mat-icon>{{ lots[11].vehicle_id | getIconVehicle }}</mat-icon> -->
+              </button>
+            </td>
+            <td>
+              <span *ngIf="lots[12].vehicle_id.length == 0">
+                {{ lots[12].id_number }}
+              </span>
+              <button
+                class="btn-lot"
+                (click)="getInformation(lots[12].id, lots[12].vehicle_id)"
+                *ngIf="lots[12].vehicle_id.length !== 0"
+              >
+                <mat-icon>local_parking</mat-icon>
+                <!-- <mat-icon>{{ lots[12].vehicle_id | getIconVehicle }}</mat-icon> -->
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td *ngFor="let idx of [13, 14, 15, 16, 17]">
+              <span *ngIf="lots[idx].vehicle_id.length == 0">
+                {{ lots[idx].id_number }}
+              </span>
+              <button
+                class="btn-lot"
+                (click)="getInformation(lots[idx].id, lots[idx].vehicle_id)"
+                *ngIf="lots[idx].vehicle_id.length !== 0"
+              >
+                <mat-icon>local_parking</mat-icon>
+                <!-- <mat-icon>{{ lots[idx].vehicle_id | getIconVehicle }}</mat-icon> -->
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="information" fxFlex="10">
+      <div
+        class="in-information"
+        *ngIf="selection.id !== null"
+        fxLayout="row"
+        fxLayoutAlign="space-around center"
+      >
+        <span class="information-label">
+          Information:
+        </span>
+        <span class="number-label">
+          {{ selection.number_plate }}
+        </span>
+        <span class="type-label">
+          {{ selection.type | titlecase }}
+        </span>
+        <button mat-stroked-button class="btn-remove" (click)="removeFromLot()">
+          Remove
+        </button>
+      </div>
+    </div>
+  </mat-card>
+</div>

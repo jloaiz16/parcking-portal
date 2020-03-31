@@ -1,0 +1,108 @@
+.status .lots {
+  padding: 0px 20px 20px 20px;
+  height: 95%;
+  width: 100%;
+}
+
+.status {
+  margin-right: 20px;
+  padding: 0px 16px 16px 16px;
+}
+
+.lots {
+  padding: 0px 16px 16px 16px;
+}
+
+.small .medium {
+  margin-right: 5%;
+}
+
+.plots-container {
+  padding: 10px;
+  height: 95%;
+}
+
+.subtotal {
+  font-weight: bolder;
+  font-size: 70px;
+  color: #0071bb;
+}
+
+.separator {
+  font-weight: 400;
+  font-size: 30px;
+  margin-left: -5px;
+}
+
+.total {
+  font-weight: 600;
+  font-size: 25px;
+  margin-left: -5px;
+}
+
+.title {
+  font-weight: 400;
+  font-size: 20px;
+  color: #044977;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table,
+th,
+td {
+  border: 5px solid #d6d608;
+  background-color: #494949;
+  color: yellow;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+td {
+  height: 70px;
+  width: 60px;
+  text-align: center;
+}
+
+.btn-lot {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.in-information {
+  height: 100%;
+  width: 100%;
+}
+
+.information-label {
+  font-weight: 700;
+  font-size: 17px;
+  font-style: italic;
+}
+
+.number-label {
+  font-weight: 800;
+  font-size: 17px;
+  font-style: italic;
+  color: #0071bbde;
+}
+
+.type-label {
+  font-weight: 800;
+  font-size: 17px;
+  font-style: italic;
+  color: #969696;
+}
+
+.btn-remove {
+  background-color: #fbe3e3e6;
+  color: #920000;
+  font-size: 15px;
+  border: none !important;
+  border-radius: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}

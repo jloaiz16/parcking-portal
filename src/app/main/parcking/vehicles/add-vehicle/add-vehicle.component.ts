@@ -17,6 +17,7 @@ export class AddVehicleComponent implements OnInit {
   public vehicle: IVehicle = {
     id: null,
     type: null,
+    waiting: null,
     number_plate: null,
     date: null
   };
@@ -45,9 +46,8 @@ export class AddVehicleComponent implements OnInit {
   register(): void {
     this.vehicle = this.vehicleForm.getRawValue();
     this.vehicle.date = new Date().toString();
-    this.service.addVehicle(this.vehicle).then(response => {
-      Swal.fire('Success', 'Vehicle added to queue succesfully', 'success');
-      this.vehicleForm.reset();
-    });
+    this.vehicle.waiting = false;
+    this.service.tryParcking(this.vehicle);
+    this.vehicleForm.reset();
   }
 }
